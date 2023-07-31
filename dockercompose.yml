@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+   reactjs:
+     build: 
+       context: .
+       target: dev
+     container_name: reactjs
+     image: reactjs:lts
+     volumes:
+     - ./src:/app/src
+     ports:
+     - "80:80"
