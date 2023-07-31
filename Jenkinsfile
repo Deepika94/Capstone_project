@@ -4,7 +4,7 @@ pipeline{
     stage('Build Docker Image') {
         steps {
           script {
-            sh '/var/lib/jenkins/workspace/Job-Build/build.sh'
+            sh '/var/lib/jenkins/workspace/Automate-Build/build.sh'
         }
      }
     }
