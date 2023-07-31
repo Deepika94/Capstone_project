@@ -10,7 +10,8 @@ pipeline{
             withCredentials([usernamePassword(credentialsId: 'docker-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
                //push the docker image to docker hub 
-               sh "docker push deepikajag/reactjs:lts"
+               sh "docker tag reactjs:lts deepikajag/dev:lts"
+               sh "docker push deepikajag/dev:lts"
         }
          }
       }
