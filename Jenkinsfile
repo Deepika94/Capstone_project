@@ -3,8 +3,8 @@ pipeline{
  stages{
     stage('Build Docker Image') {
         steps {
-        script {
-            sh 'build.sh'
+          script {
+            sh '/var/lib/jenkins/workspace/Job-Build/build.sh'
         }
      }
     }
