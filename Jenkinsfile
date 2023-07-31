@@ -5,9 +5,8 @@ pipeline{
         steps {
           script {
              sh '/var/lib/jenkins/workspace/Automate-build/build.sh'
-      stage('Push Docker Image') {
+    stage('Push Docker Image') {
          steps {
-            script {
             withCredentials([usernamePassword(credentialsId: 'docker-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
                //push the docker image to docker hub 
