@@ -11,7 +11,6 @@ pipeline{
                sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
                //push the docker image to docker hub 
                sh "docker push deepikajag/dev:lts"
-           }
         }
          }
       }
