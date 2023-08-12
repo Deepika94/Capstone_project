@@ -48,7 +48,7 @@ pipeline{
       }
     }
   }
- }
+ 
   stage('Push Image') {
     steps {
       script {
@@ -58,11 +58,12 @@ pipeline{
 
           // Push the image to the destination repository
           sh "docker push deepikajag/prod:lts"
-
-      }
+       }
       }
     }
   }
 }
+}
+
 
 
