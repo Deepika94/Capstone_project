@@ -49,7 +49,7 @@ pipeline{
     }
   }
  }
-  stage('Pull Image') {
+  stage('Push Image') {
     steps {
       script {
         withDockerRegistry(credentialsId: 'docker-id', url: 'https://hub.docker.com/repository/docker/deepikajag/prod') {
@@ -60,4 +60,9 @@ pipeline{
           sh "docker push ${deepikajag/prod:lts}"
 
       }
+      }
+    }
+  }
 }
+
+
