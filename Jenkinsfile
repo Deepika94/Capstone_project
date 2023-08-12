@@ -9,7 +9,7 @@ pipeline{
     }
   }
 
-  stage(''Push Docker Image'') {
+  stage('Push Docker Image') {
     steps {
       withCredentials([usernamePassword(credentialsId: 'docker-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
         sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
@@ -19,7 +19,7 @@ pipeline{
       }
     }
   }
-  stage(''Dev Merge to Master'') {
+  stage('Dev Merge to Master') {
     steps {
       script {
       //clone the git repository 
