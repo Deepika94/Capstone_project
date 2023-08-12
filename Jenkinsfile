@@ -19,21 +19,27 @@ pipeline{
       }
     }
   }
-  
+
   stage('Dev Merge to Master') {
     steps {
       script {
       //clone the git repository 
       checkout([$class: 'GitSCM', branches: [[name: 'dev']], userRemoteConfigs: [[url: 'https://github.com/Deepika94/Capstone_project']]])
+      }
+    }
+  }
 
-      //Checkout from the master
-      //sh 'git checkout dev'
+    stage('Dev Merge to Master') {
+    steps {
+      script {
+      // Switch to the master branch
+      sh 'git checkout master'
 
-      //Merge dev and master
-      //sh 'git merge master'
+      // Merge changes from dev into master
+      sh 'git merge --no-ff origin/dev'
 
-       // Push changes to remote master branch
-       //sh 'git push origin master'
+      // Push changes to remote master branch
+      sh 'git push origin master'
 
     }
    }
