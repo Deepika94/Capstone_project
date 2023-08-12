@@ -30,8 +30,12 @@ pipeline{
 
       //Merge dev and master
       sh 'git merge master'
+
+       // Push changes to remote master branch
+       sh 'git push origin master'
+
     }
-  }
+   }
   }
 
   stage('Pull Image') {
