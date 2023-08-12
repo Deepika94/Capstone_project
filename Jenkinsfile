@@ -35,8 +35,11 @@ pipeline{
       // Switch to the master branch
       sh 'git checkout master'
 
-      // Merge changes from dev into master
-      sh 'git merge --no-ff origin/dev'
+      //Stage the resolved Jenkinsfile
+      sh 'git add Jenkinsfile'
+
+      //Commit the changes
+      sh 'git commit -m "Resolved merge conflict in Jenkinsfile"'
 
       // Push changes to remote master branch
       sh 'git push origin master'
