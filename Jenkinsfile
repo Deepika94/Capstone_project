@@ -20,7 +20,7 @@ pipeline{
     }
   }
 
-  stage('Dev Merge to Master') {
+  stage('Checkout') {
     steps {
       script {
       //clone the git repository 
