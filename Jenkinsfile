@@ -26,7 +26,7 @@ pipeline{
       git 'https://github.com/Deepika94/Capstone_project'
 
       //Checkout from the master
-      sh 'git checkout dev'
+      //sh 'git checkout dev'
 
       //Merge dev and master
       sh 'git merge master'
