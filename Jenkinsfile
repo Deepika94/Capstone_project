@@ -52,7 +52,7 @@ pipeline{
   stage('Push Image') {
     steps {
       script {
-        withDockerRegistry(credentialsId: 'docker-id', url: 'https://hub.docker.com/repository/docker/deepikajag/prod') {
+        withDockerRegistry(credentialsId: 'docker-id', url: 'https://hub.docker.com/repository/docker/deepikajag') {
           // Tag the pulled image with the destination repository name
           sh "docker tag deepikajag/dev:lts deepikajag/prod:lts"
 
