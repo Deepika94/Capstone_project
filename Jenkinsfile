@@ -54,10 +54,10 @@ pipeline{
       script {
         withDockerRegistry(credentialsId: 'docker-id', url: 'https://hub.docker.com/repository/docker/deepikajag/prod') {
           // Tag the pulled image with the destination repository name
-          sh "docker tag ${deepikajag/dev:lts} ${deepikajag/prod:lts}"
+          sh "docker tag deepikajag/dev:lts deepikajag/prod:lts"
 
           // Push the image to the destination repository
-          sh "docker push ${deepikajag/prod:lts}"
+          sh "docker push deepikajag/prod:lts"
 
       }
       }
