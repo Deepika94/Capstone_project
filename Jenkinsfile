@@ -29,7 +29,7 @@ pipeline{
     }
   }
 
-    stage('Dev Merge to Master') {
+  stage('Dev Merge to Master') {
     steps {
       script {
       // Switch to the master branch
