@@ -52,8 +52,11 @@ pipeline{
   stage('Push Image') {
     steps {
       script {
-        withDockerRegistry(credentialsId: 'docker-id', url: 'https://hub.docker.com/repository/docker/deepikajag') {
-          // Tag the pulled image with the destination repository name
+        withCredentials([usernamePassword(credentialsId: 'docker-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+       
+        sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
+        
+        // Tag the pulled image with the destination repository name
           sh "docker tag deepikajag/dev:lts deepikajag/prod:lts"
 
           // Push the image to the destination repository
