@@ -20,35 +20,25 @@ pipeline{
     }
   }
 
-  stage('Checkout') {
-    steps {
-      script {
-      //clone the git repository 
-      checkout([$class: 'GitSCM', branches: [[name: 'dev']], userRemoteConfigs: [[url: 'https://github.com/Deepika94/Capstone_project']]])
-      }
-    }
-  }
-
   stage('Dev Merge to Master') {
     steps {
       script {
       // Switch to the master branch
-      sh 'git checkout master'
+      git 'https://github.com/Deepika94/Capstone_project'
 
       //Stage the resolved Jenkinsfile
-      sh 'git add Jenkinsfile'
+      //sh 'git add Jenkinsfile'
 
       //Commit the changes
-      sh 'git commit -m "Resolved merge conflict in Jenkinsfile"'
+      //sh 'git commit -m "Resolved merge conflict in Jenkinsfile"'
 
       // Push changes to remote master branch
-      sh 'git push origin master'
+      sh 'git merge master'
 
     }
    }
   }
   
-
   stage('Pull Image') {
     steps {
       withCredentials([usernamePassword(credentialsId: 'docker-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
