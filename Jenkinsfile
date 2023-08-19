@@ -23,7 +23,7 @@ pipeline{
   stage('Dev Merge to Master') {
     steps {
       script {
-      // Switch to the master branch
+      
       git 'https://github.com/Deepika94/Capstone_project'
 
       //Stage the resolved Jenkinsfile
@@ -65,7 +65,16 @@ pipeline{
       }
     }
   }
+  stage('Deploy the application') {
+    steps {
+      script {
+        sh '/var/lib/jenkins/workspace/Automate-build/deploy.sh'
+      }
+      
+    }
+  }
 }
+  
 }
 
 
