@@ -71,8 +71,7 @@ pipeline{
         sh 'chmod +x deploy.sh'
         sh '/var/lib/jenkins/workspace/Automate-build/deploy.sh'
       }
-      
-    }
+     }
   }
 }
   
